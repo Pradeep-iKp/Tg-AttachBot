@@ -1,8 +1,7 @@
 # Made with python3
-# (C) @FayasNoushad
+# (C) @FayasNoushad @HKkrish
 # Copyright permission under MIT License
-# All rights reserved by FayasNoushad
-# License -> https://github.com/FayasNoushad/Attach-Bot-V2/blob/main/LICENSE
+# License -> https://github.com/Pradeep-iKp/Tg-AttachBot/blob/main/LICENSE
 
 import os 
 import time
@@ -24,7 +23,7 @@ from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 
 
 Bot = Client(
-    "Attach Bot V2",
+    "Tg-AttachBot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"],
@@ -57,43 +56,17 @@ HELP_TEXT = """**Hey, Follow these steps:**
 
 Made by @FayasNoushad"""
 
-ABOUT_TEXT = """--**About Me**-- 😎
-
-🤖 Name : [Attach Bot](https://telegram.me/{})
-
-👨‍💻 Developer : [Fayas](https://github.com/FayasNoushad)
-
-📢 Channel : [Fayas Noushad](https://telegram.me/FayasNoushad)
-
-👥 Group : [Developer Team](https://telegram.me/TheDeveloperTeam)
-
-🌐 Source : [👉 Click here](https://github.com/FayasNoushad/Attach-Bot-V2)
-
-📝 Language : [Python3](https://python.org)
-
-🧰 Framework : [Pyrogram](https://pyrogram.org)
-
-📡 Server : [Heroku](https://heroku.com)"""
 
 FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
 START_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('⚙ Help', callback_data='help'),
-        InlineKeyboardButton('About 🔰', callback_data='about'),
         InlineKeyboardButton('Close ✖️', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
         InlineKeyboardButton('🏘 Home', callback_data='home'),
-        InlineKeyboardButton('About 🔰', callback_data='about'),
-        InlineKeyboardButton('Close ✖️', callback_data='close')
-        ]]
-    )
-ABOUT_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('🏘 Home', callback_data='home'),
-        InlineKeyboardButton('Help ⚙', callback_data='help'),
         InlineKeyboardButton('Close ✖️', callback_data='close')
         ]]
     )
@@ -134,12 +107,6 @@ async def cb_handler(bot, update):
             reply_markup=HELP_BUTTONS,
             disable_web_page_preview=True
         )
-    elif update.data == "about":
-        await update.message.edit_text(
-            text=ABOUT_TEXT.format((await bot.get_me()).username),
-            reply_markup=ABOUT_BUTTONS,
-            disable_web_page_preview=True
-        )
     else:
         await update.message.delete()
 
@@ -164,18 +131,6 @@ async def help(bot, update):
         text=HELP_TEXT,
         disable_web_page_preview=True,
         reply_markup=HELP_BUTTONS,
-        quote=True
-    )
-
-
-@Bot.on_message(filters.private & filters.command(["about"]))
-async def about(bot, update):
-    if not await db.is_user_exist(update.from_user.id):
-            await db.add_user(update.from_user.id)
-    await update.reply_text(
-        text=ABOUT_TEXT.format((await bot.get_me()).username),
-        disable_web_page_preview=True,
-        reply_markup=ABOUT_BUTTONS,
         quote=True
     )
 
