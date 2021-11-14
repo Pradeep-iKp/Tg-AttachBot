@@ -1,0 +1,47 @@
+{
+    "name": "Tg-AttachBot",
+    "description": "A Telegram Bot that can attach media & file in a message by public links.",
+    "keywords": [
+        "telegram",
+        "best",
+        "file",
+        "attach",
+        "message"
+    ],
+    "repository": "https://github.com/Pradeep-iKp/Tg-AttachBot",
+    "website": "https://github.com/Pradeep-iKp",
+    "env": {
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        },
+        "API_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "BOT_TOKEN": {
+            "description": "",
+            "required": "True"
+        },
+        "DATABASE_URL": {
+            "description": "",
+            "required": "True"
+        },
+        "BOT_OWNER": {
+            "description": "",
+            "required": "True"
+        }
+    },
+    "stack": "heroku-20",
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
