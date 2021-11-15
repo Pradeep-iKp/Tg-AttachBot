@@ -1,5 +1,5 @@
 # Made with python3
-# (C) @FayasNoushad @HKkrish
+# (C) @HKkrish
 # Copyright permission under MIT License
 # License -> https://github.com/Pradeep-iKp/Tg-AttachBot/blob/main/LICENSE
 
@@ -37,21 +37,19 @@ START_TEXT = """**Hello {},
 ~ @HKrrish ~
 """
 HELP_TEXT = """**⭐ --Rate Our Service-- ⭐**
-Hey! {}
-
 If you like our service please rate it! We are waiting for your feedback. 🤗"""
 
 
 FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('⚙ Help', callback_data='help'),
+        InlineKeyboardButton('🌟 Rate', callback_data='help'),
         InlineKeyboardButton('Close ✖️', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('🏘 Home', callback_data='home'),
+        InlineKeyboardButton('🤖 Bots', callback_data='home'),
         InlineKeyboardButton('Close ✖️', callback_data='close')
         ]]
     )
