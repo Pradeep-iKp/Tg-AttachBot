@@ -19,7 +19,6 @@ import pyrogram
 from pyrogram import Client, filters 
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel, FloodWait, InputUserDeactivated, UserIsBlocked
-from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 
 
 Bot = Client(
@@ -64,19 +63,6 @@ async def send_msg(user_id, message):
     except Exception as e:
         return 500, f"{user_id} : {traceback.format_exc()}\n"
 
-
-@Bot.on_callback_query()
-async def cb_handler(bot, update):
-    if update.data == "bots":
-        await update.message.edit_text(
-            text=BOT_TEXT.format(update.from_user.mention),
-        )
-    elif update.data == "rate":
-        await update.message.edit_text(
-            text=RATE_TEXT,
-        )
-    else:
-        await update.message.delete()
 
 
 @Bot.on_message(filters.private & filters.command(["bots"]))
