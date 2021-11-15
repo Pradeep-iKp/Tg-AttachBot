@@ -37,22 +37,11 @@ START_TEXT = """**Hello {},
 ~ @HKrrish ~
 """
 HELP_TEXT = """**⭐ --Rate Our Service-- ⭐**
-If you like our service please rate it! We are waiting for your feedback. 🤗"""
+If you like our service please rate it! We are waiting for your feedback. 🤗
+"""
 
 
 FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
-START_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('🌟 Rate', callback_data='help'),
-        InlineKeyboardButton('Close ✖️', callback_data='close')
-        ]]
-    )
-HELP_BUTTONS = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('🤖 Bots', callback_data='home'),
-        InlineKeyboardButton('Close ✖️', callback_data='close')
-        ]]
-    )
 
 broadcast_ids = {}
 db = Database(os.environ["DATABASE_URL"], "Tg-AttachBot")
@@ -81,14 +70,10 @@ async def cb_handler(bot, update):
     if update.data == "home":
         await update.message.edit_text(
             text=START_TEXT.format(update.from_user.mention),
-            reply_markup=START_BUTTONS,
-            disable_web_page_preview=True
         )
     elif update.data == "help":
         await update.message.edit_text(
             text=HELP_TEXT,
-            reply_markup=HELP_BUTTONS,
-            disable_web_page_preview=True
         )
     else:
         await update.message.delete()
@@ -101,8 +86,6 @@ async def start(bot, update):
     await update.reply_text(
         text=START_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=START_BUTTONS,
-        quote=True
     )
 
 
@@ -113,8 +96,6 @@ async def help(bot, update):
     await update.reply_text(
         text=HELP_TEXT,
         disable_web_page_preview=True,
-        reply_markup=HELP_BUTTONS,
-        quote=True
     )
 
 
