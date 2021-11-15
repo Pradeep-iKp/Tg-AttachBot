@@ -63,10 +63,7 @@ async def send_msg(user_id, message):
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_sticker(
-        sticker=BOT_TEXT,
-        disable_web_page_preview=True,
-    )
+    await update.reply_sticker("CAACAgUAAxkBAAEMnMxhkkgNwa7-38J4iAyEvpdy9wZ0agACjQIAAtRt4FU6euRC490OoCIE")
 
 
 @Bot.on_message(filters.private & filters.command(["rate"]))
