@@ -28,7 +28,7 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """"""
+BOT_TEXT = """CAACAgUAAxkBAAEMnMxhkkgNwa7-38J4iAyEvpdy9wZ0agACjQIAAtRt4FU6euRC490OoCIE"""
 RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
 If you like our service please rate it! We are waiting for your feedback. 🤗
 """
@@ -64,7 +64,7 @@ async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
     await update.reply_sticker(
-        sticker=BOT_TEXT
+        sticker=BOT_TEXT,
         disable_web_page_preview=True,
     )
 
