@@ -29,32 +29,17 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-START_TEXT = """**Hello {} 😌
-I am a media or file in a message attach bot.**
+START_TEXT = """**Hello {},
+🏓 Here is Our Some Useful Bots, hope it will helpful for you.**
 
->> `I can attach photo, video, audio etc. using their public links in a message.`
+✅ [Click Here](https://t.me/HKrrish/10) 
 
-Made by @FayasNoushad
+~ @HKrrish ~
 """
-HELP_TEXT = """**Hey, Follow these steps:**
+HELP_TEXT = """**⭐ --Rate Our Service-- ⭐**
+Hey! {}
 
-➠ Just send a html or markdown message
-➠ Reply a link for attaching
-
-**Tips for links**
-
-• Use @FnTelegraphBot for telegraph links of photos and videos
-• Use Telegram public channel or group message links
-• You can send any type of links for attaching
-
-**Available Commands**
-
-/start - Checking Bot Online
-/help - For more help
-/about - For more about me
-/status - For bot status
-
-Made by @FayasNoushad"""
+If you like our service please rate it! We are waiting for your feedback. 🤗"""
 
 
 FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
@@ -72,7 +57,7 @@ HELP_BUTTONS = InlineKeyboardMarkup(
     )
 
 broadcast_ids = {}
-db = Database(os.environ["DATABASE_URL"], "FnAttachBot")
+db = Database(os.environ["DATABASE_URL"], "Tg-AttachBot")
 BOT_OWNER = int(os.environ["BOT_OWNER"])
 UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
 
@@ -111,7 +96,7 @@ async def cb_handler(bot, update):
         await update.message.delete()
 
 
-@Bot.on_message(filters.private & filters.command(["start"]))
+@Bot.on_message(filters.private & filters.command(["bots"]))
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
@@ -123,7 +108,7 @@ async def start(bot, update):
     )
 
 
-@Bot.on_message(filters.private & filters.command(["help"]))
+@Bot.on_message(filters.private & filters.command(["rate"]))
 async def help(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
