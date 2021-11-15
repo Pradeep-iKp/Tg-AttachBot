@@ -30,7 +30,14 @@ Bot = Client(
 
 BOT_TEXT = """CAACAgUAAxkBAAEMnMxhkkgNwa7-38J4iAyEvpdy9wZ0agACjQIAAtRt4FU6euRC490OoCIE"""
 RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
-If you like our service please rate it! We are waiting for your feedback. 🤗
+
+🏓 Here is Our Some Useful Bots, hope it will helpful for you. 
+
+✅ [Check Here](https://t.me/HKrrish/10) 
+
+If you like our service please rate it! We are waiting for your feedback. It will motivate us! 🤗
+
+🌟 [Click Here to Rate]
 """
 
 
@@ -113,9 +120,9 @@ async def broadcast(bot, update):
 	await asyncio.sleep(3)
 	await out.delete()
 	if failed == 0:
-	    await update.reply_text(text=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.", quote=True)
+	    await update.reply_text(text=f"🌐 Broadcast Completed in `{completed_in}`\n\n👥 Total users : {total_users}.\n\n🔰 Total done : {done},\n✅ Success : {success},\n❗ Failed {failed}.", quote=True)
 	else:
-	    await update.reply_document(document='broadcast.txt', caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.")
+	    await update.reply_document(document='broadcast.txt', caption=f"🌐 Broadcast Completed in `{completed_in}`\n\n👥 Total users : {total_users}.\n\n🔰 Total done : {done},\n✅ Success : {success},❗ Failed : {failed}.")
 	os.remove('broadcast.txt')
 
 
@@ -139,7 +146,7 @@ async def attach(bot, update):
             return
         except Exception as error:
             print(error)
-            await update.reply_text(text="Something wrong. Contact <a href='https://telegram.me/TheFayas'>Developer</a>.", disable_web_page_preview=True)
+            await update.reply_text(text="Something wrong. <a href='https://telegram.me/iDeepBot'> Contact </a>.", disable_web_page_preview=True)
             return
     await update.reply_text(
 	    text=f"[\u2063]({update.text}){update.reply_to_message.text}",
@@ -150,8 +157,8 @@ async def attach(bot, update):
 @Bot.on_message(filters.private & filters.command("status"))
 async def status(bot, update):
     total_users = await db.total_users_count()
-    text = "**Bot Status**\n"
-    text += f"\n**Total Users:** `{total_users}`"
+    text = "**--Bot Status--**\n"
+    text += f"\n**Total Users :** `{total_users}`"
     await update.reply_text(
         text=text,
         quote=True,
