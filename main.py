@@ -29,14 +29,14 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-START_TEXT = """**Hello {},
+BOT_TEXT = """**Hello {},
 🏓 Here is Our Some Useful Bots, hope it will helpful for you.**
 
 ✅ [Click Here](https://t.me/HKrrish/10) 
 
 ~ @HKrrish ~
 """
-HELP_TEXT = """**⭐ --Rate Our Service-- ⭐**
+RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
 If you like our service please rate it! We are waiting for your feedback. 🤗
 """
 
@@ -67,13 +67,13 @@ async def send_msg(user_id, message):
 
 @Bot.on_callback_query()
 async def cb_handler(bot, update):
-    if update.data == "home":
+    if update.data == "bots":
         await update.message.edit_text(
-            text=START_TEXT.format(update.from_user.mention),
+            text=BOT_TEXT.format(update.from_user.mention),
         )
-    elif update.data == "help":
+    elif update.data == "rate":
         await update.message.edit_text(
-            text=HELP_TEXT,
+            text=RATE_TEXT,
         )
     else:
         await update.message.delete()
@@ -84,7 +84,7 @@ async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
     await update.reply_text(
-        text=START_TEXT.format(update.from_user.mention),
+        text=BOT_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
     )
 
@@ -94,7 +94,7 @@ async def help(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
     await update.reply_text(
-        text=HELP_TEXT,
+        text=RATE_TEXT,
         disable_web_page_preview=True,
     )
 
