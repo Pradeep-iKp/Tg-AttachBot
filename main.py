@@ -28,8 +28,6 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """
-"""
 RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
 If you like our service please rate it! We are waiting for your feedback. 🤗
 """
@@ -64,8 +62,6 @@ async def send_msg(user_id, message):
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_text(
-        text=BOT_TEXT.format(update.from_user.mention),
         disable_web_page_preview=True,
     )
 
