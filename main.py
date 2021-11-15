@@ -28,7 +28,7 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """"""
+BOT_TEXT = """Tg-AttachBot/blob/main/START.jpg"""
 RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
 If you like our service please rate it! We are waiting for your feedback. 🤗
 """
