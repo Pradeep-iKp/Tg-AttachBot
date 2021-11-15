@@ -28,12 +28,7 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """**Hello {},
-🏓 Here is Our Some Useful Bots, hope it will helpful for you.**
-
-✅ [Click Here](https://t.me/HKrrish/10) 
-
-~ @HKrrish ~
+BOT_TEXT = """
 """
 RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
 If you like our service please rate it! We are waiting for your feedback. 🤗
@@ -65,7 +60,7 @@ async def send_msg(user_id, message):
 
 
 
-@Bot.on_message(filters.private & filters.command(["bots"]))
+@Bot.on_message(filters.private & filters.command(["start"]))
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
