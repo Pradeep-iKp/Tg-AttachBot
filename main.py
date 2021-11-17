@@ -28,16 +28,16 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """CAACAgUAAxkBAAEMnMxhkkgNwa7-38J4iAyEvpdy9wZ0agACjQIAAtRt4FU6euRC490OoCIE"""
-RATE_TEXT = """**⭐ --Rate Our Service-- ⭐**
+BOT_TEXT = """AAMCBQADGQEAAQyn4WGVK-3PMnxeo32IS7NqQ6VllzQRAAKgAwACIPuxVLSXNZW97RNcAQAHbQADIgQ"""
+RATE_TEXT = """**⭐ --Give Your Feedback-- ⭐**
 
 🏓 Here is Our Some Useful Bots, hope it will helpful for you. 
 
 ✅ [Check Here](https://t.me/HKrrish/10) 
 
-If you like our service please rate it! We are waiting for your feedback. It will motivate us! 🤗
+If you like our service please give feedback! We are waiting for your feedback. It will motivate us! 🤗
 
-🌟 [Click Here to Rate]
+🌟 [Click Here to Comment](https://comments.bot/thread/Yd9Qvc0l1)
 """
 
 
@@ -70,7 +70,7 @@ async def send_msg(user_id, message):
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_sticker("CAACAgUAAxkBAAEMnMxhkkgNwa7-38J4iAyEvpdy9wZ0agACjQIAAtRt4FU6euRC490OoCIE")
+    await update.reply_sticker("AAMCBQADGQEAAQyn4WGVK-3PMnxeo32IS7NqQ6VllzQRAAKgAwACIPuxVLSXNZW97RNcAQAHbQADIgQ")
 
 
 @Bot.on_message(filters.private & filters.command(["rate"]))
