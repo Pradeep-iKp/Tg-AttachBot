@@ -37,7 +37,7 @@ RATE_TEXT = """**⭐ --Give Your Feedback-- ⭐**
 
 If you like our service please give feedback! We are waiting for your feedback. It will motivate us! 🤗
 
-🌟 [Click Here to Comment](https://comments.bot/thread/Yd9Qvc0l1)
+🌟 [Click Here to Comment](https://bit.ly/3qMPujU)
 """
 
 
