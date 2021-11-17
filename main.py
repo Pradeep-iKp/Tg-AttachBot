@@ -73,7 +73,7 @@ async def start(bot, update):
     await update.reply_sticker("AAMCBQADGQEAAQyn4WGVK-3PMnxeo32IS7NqQ6VllzQRAAKgAwACIPuxVLSXNZW97RNcAQAHbQADIgQ")
 
 
-@Bot.on_message(filters.private & filters.command(["rate"]))
+@Bot.on_message(filters.private & filters.command(["review"]))
 async def help(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
