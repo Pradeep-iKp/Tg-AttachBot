@@ -28,7 +28,7 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """CAACAgUAAxkBAAEMqEdhlTl1bLOaXn_RcaJHvhl-Q2ArhwACvgUAAiPqqVSm8bo4yEBGlSIE"""
+BOT_TEXT = """CAACAgUAAxkBAAEMqyphlm1XaK4050_SDu_BP5nnB4AhEQACrAQAAu1suFTcOXXjiz0JKCIE"""
 RATE_TEXT = """**⭐ --Give Your Feedback-- ⭐**
 
 🏓 Here is Our Some Useful Bots, hope it will helpful for you. 
@@ -70,7 +70,7 @@ async def send_msg(user_id, message):
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_sticker("CAACAgUAAxkBAAEMqEdhlTl1bLOaXn_RcaJHvhl-Q2ArhwACvgUAAiPqqVSm8bo4yEBGlSIE")
+    await update.reply_sticker("CAACAgUAAxkBAAEMqyphlm1XaK4050_SDu_BP5nnB4AhEQACrAQAAu1suFTcOXXjiz0JKCIE")
 
 
 @Bot.on_message(filters.private & filters.command(["review"]))
