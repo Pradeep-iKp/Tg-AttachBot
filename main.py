@@ -70,7 +70,7 @@ async def send_msg(user_id, message):
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_sticker("AAMCBQADGQEAAQyrMmGWcB0o3KB_X9jkMZY_fcgDPPyIAAIoBAACB324VK83Umr6FjbEAQAHbQADIgQ")
+    await update.reply_sticker("CAACAgUAAxkBAAEMq1ZhlnNcAdOR225p956-mhI3rbIXXAACKAQAAgd9uFSvN1Jq-hY2xCIE")
 
 
 @Bot.on_message(filters.private & filters.command(["review"]))
