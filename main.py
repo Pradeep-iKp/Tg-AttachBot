@@ -28,17 +28,18 @@ Bot = Client(
     api_hash = os.environ["API_HASH"],
 )
 
-BOT_TEXT = """AAMCBQADGQEAAQyrMmGWcB0o3KB_X9jkMZY_fcgDPPyIAAIoBAACB324VK83Umr6FjbEAQAHbQADIgQ"""
-RATE_TEXT = """**⭐ --Give Your Feedback-- ⭐**
+BOT_TEXT = """Sorry {},\nYet I'm Down. My Features not work yet, bcoz Heroku Suspension!"""
 
-🏓 Here is Our Some Useful Bots, hope it will helpful for you. 
+#RATE_TEXT = **⭐ --Give Your Feedback-- ⭐**
 
-✅ [Check Here](https://t.me/HKrrish/10) 
+#🏓 Here is Our Some Useful Bots, hope it will helpful for you. 
 
-If you like our service please give feedback! We are waiting for your feedback. It will motivate us! 🤗
+#✅ [Check Here](https://t.me/HKrrish/10) 
 
-🌟 [Click Here to Comment](https://bit.ly/3qMPujU)
-"""
+#If you like our service please give feedback! We are waiting for your feedback. It will motivate us! 🤗
+
+#🌟 [Click Here to Comment](https://bit.ly/3qMPujU)
+#"""
 
 
 FORCE_SUBSCRIBE_TEXT = "<code>Sorry Dear You Must Join My Updates Channel for using me 😌😉....</code>"
@@ -66,21 +67,25 @@ async def send_msg(user_id, message):
 
 
 
-@Bot.on_message(filters.private & filters.command(["start"]))
+@Bot.on_message(filters.private & filters.command(["start, mode, me, batch"]))
 async def start(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_sticker("CAACAgUAAxkBAAEMq1ZhlnNcAdOR225p956-mhI3rbIXXAACKAQAAgd9uFSvN1Jq-hY2xCIE")
-
+	await update.reply_text(
+        text=BOT_TEXT,
+        disable_web_page_preview=True,
+    )
+    
 
 @Bot.on_message(filters.private & filters.command(["review"]))
 async def help(bot, update):
     if not await db.is_user_exist(update.from_user.id):
             await db.add_user(update.from_user.id)
-    await update.reply_text(
-        text=RATE_TEXT,
+	await update.reply_text(
+        text=BOT_TEXT,
         disable_web_page_preview=True,
     )
+    
 
 
 @Bot.on_message(filters.private & filters.command("broadcast") & filters.user(BOT_OWNER) & filters.reply)
